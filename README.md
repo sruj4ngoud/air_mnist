@@ -29,27 +29,6 @@ No screen. No pen. Just air.
 
 ---
 
-## Project Structure
-
-air-mnist/
-├── main.py # Application entry point
-├── model/
-│ ├── cnn_model.h5 # Trained CNN model
-│ └── train.py # Model training script
-├── hand_tracking/
-│ └── tracker.py # MediaPipe-based hand tracking
-├── utils/
-│ ├── preprocessing.py # Trajectory smoothing & normalization
-│ └── drawing_utils.py # Gesture logic & canvas rendering
-├── docs/
-│ ├── preprocessing.md
-│ ├── model.md
-│ └── design_notes.md
-├── requirements.txt
-└── README.md
-
----
-
 ## How It Works
 
 - **Hand Tracking:** MediaPipe detects and tracks hand landmarks from a live webcam feed  
