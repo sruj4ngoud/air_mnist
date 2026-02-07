@@ -1,45 +1,87 @@
-Air MNIST – Touchless Gesture-Based Digit Drawing & Recognition
+# Air MNIST – Touchless Gesture-Based Digit Drawing & Recognition
 
-Real-time hand-gesture driven drawing system with deep-learning based digit recognition.
+A real-time, touchless drawing system that allows users to draw digits in mid-air using hand gestures and recognizes them using a CNN trained on MNIST-style representations.
 
-Highlights
+No screen. No pen. Just air.
 
-Inputs: Live webcam feed, hand landmark trajectories
-Interaction: Mid-air drawing using index finger; left-thumb gesture to clear canvas
-Model: CNN trained on MNIST-style spatial representations
-Processing: Temporal hand trajectories → stabilized 2D drawing space
-Output: Real-time digit prediction with visual feedback
-Stack: Python, OpenCV, MediaPipe, TensorFlow/Keras, NumPy
-Performance: Low-latency real-time interaction; robust to noisy hand motion
+---
 
-Project Structure
+## Highlights
 
-Refer to README.md for setup instructions and system overview.
-See docs/ for model details, preprocessing pipeline, and design notes.
+- **Input:** Live webcam feed with hand landmark trajectories  
+- **Interaction:**  
+  - Index finger → draw in mid-air  
+  - Left-thumb gesture → clear canvas  
+- **Model:** Convolutional Neural Network (CNN)  
+- **Processing:** Noisy temporal hand trajectories → stabilized 2D spatial drawings  
+- **Output:** Real-time digit prediction with visual feedback  
+- **Performance:** Low-latency, real-time interaction  
 
-Local Run (summary)
+---
 
-Environment: Python 3.x
-Main entry: main.py
-Hand tracking: MediaPipe + OpenCV
-Model: Trained CNN (loaded at runtime)
-Input: Webcam
+## Tech Stack
 
-Why this project
+- Python  
+- OpenCV  
+- MediaPipe (hand landmark tracking)  
+- TensorFlow / Keras  
+- NumPy  
 
-Air MNIST was built to explore end-to-end machine learning system design beyond just model training. While the CNN handled classification, the core challenge was capturing noisy human motion, tracking hand landmarks reliably, and converting unstable temporal trajectories into clean spatial representations suitable for learning.
+---
 
-The project introduces a gesture-driven interaction layer that supports both continuous and discontinuous drawing without physical contact, along with intuitive control gestures for seamless user experience. It highlights the importance of data pipelines, latency, robustness, and interaction design in real-time ML applications.
+## Project Structure
 
-Documentation
+air-mnist/
+├── main.py # Application entry point
+├── model/
+│ ├── cnn_model.h5 # Trained CNN model
+│ └── train.py # Model training script
+├── hand_tracking/
+│ └── tracker.py # MediaPipe-based hand tracking
+├── utils/
+│ ├── preprocessing.py # Trajectory smoothing & normalization
+│ └── drawing_utils.py # Gesture logic & canvas rendering
+├── docs/
+│ ├── preprocessing.md
+│ ├── model.md
+│ └── design_notes.md
+├── requirements.txt
+└── README.md
 
-Preprocessing & trajectory stabilization: docs/preprocessing.md
-Model architecture & training notes: docs/model.md
-Design decisions & limitations: docs/design_notes.md
+---
 
-License
+## How It Works
 
-MIT License
-© Air MNIST Project
+- **Hand Tracking:** MediaPipe detects and tracks hand landmarks from a live webcam feed  
+- **Gesture Input:** Index finger motion is used for mid-air drawing  
+- **Stabilization:** Noisy temporal trajectories are smoothed and normalized  
+- **Canvas Mapping:** Hand coordinates are projected onto a fixed 2D drawing space  
+- **Inference:** Processed drawing is passed to a CNN for digit prediction  
+- **Control:** Left-thumb gesture clears the canvas instantly  
+
+---
+
+## Why This Project
+
+- Explore end-to-end ML systems beyond just model training  
+- Handle real-world challenges like noisy human motion and unstable inputs  
+- Design intuitive, touchless human–computer interaction  
+- Balance accuracy, latency, and usability in a real-time system  
+
+---
+
+## Documentation
+
+- **Preprocessing & smoothing:** `docs/preprocessing.md`  
+- **Model architecture & training:** `docs/model.md`  
+- **System design & limitations:** `docs/design_notes.md`  
+
+---
+
+## License
+
+- MIT License  
+- © Air MNIST Project
+
 
 
