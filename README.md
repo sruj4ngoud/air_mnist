@@ -1,4 +1,5 @@
-# Air MNIST – Touchless Gesture-Based Digit Drawing & Recognition
+# AIR - MNIST 
+# Touchless Gesture-Based Digit Drawing & Recognition
 
 A real-time, touchless drawing system that allows users to draw digits in mid-air using hand gestures and recognizes them using a CNN trained on MNIST-style representations.
 
